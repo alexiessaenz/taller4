@@ -17,30 +17,12 @@
         fetch(`${API_URL}/library/books/?page=0&limit=10`)
             .then((response) => response.json())
             .then((users) => {
-             const tpl = users.map((book) => `<li>${book.isbn}</li> <li>${book.title}</li> <li>${book.category.name}</li> <li>${book.publishDate}</li>`);
+             const tpl = users.map((book) =>   `<li>isbn: ${book.isbn}</li> 
+                                                <li>title: ${book.title}</li> 
+                                                <li>estreno: ${(book.publishDate).substr(0,10)}</li>
+                                                <li>category: ${book.category.name}</li>`); 
              HTMLResponse.innerHTML = `<ul>${tpl}</ul>`;
             });
-
-        // const xhr = new XMLHttpRequest();
-        // function onrequesthandler(){
-        //     if (this.readyState == 4 && this.status == 200) {
-
-        //         const data = JSON.parse(this.response);
-        //         const HTMLResponse = document.querySelector("#app");
-
-        //         const tpl = data.map((book) => `<li>${book.isbn}</li> 
-        //                                         <li>${book.title}</li>  
-        //                                         <li>${book.category.name}</li> 
-        //                                         <li>${book.publishDate}</li>`);
-        //         HTMLResponse.innerHTML = `<ul>${tpl}</ul>`;
-                
-        //         console.log(this.response);
-        //     }
-        // }
-
-        // xhr.addEventListener("load", onrequesthandler);
-        // xhr.open("GET", `${API_URL}/library/books/?page=0&limit=10`);
-        // xhr.send();
     </script>
 </body>
 </html>
