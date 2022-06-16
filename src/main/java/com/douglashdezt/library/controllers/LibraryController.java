@@ -38,7 +38,7 @@ public class LibraryController {
 	@Autowired
 	private BookLoanService bookLoanService;
 	
-	@GetMapping("/books")
+	@PostMapping("/books")
 	public ResponseEntity<List<Book>> findAllBooks(@Valid PageableDTO info, BindingResult result) {	
 	    
 	    if(result.hasErrors()) {

@@ -14,13 +14,15 @@
         const API_URL = 'http://localhost:8080';
         const HTMLResponse = document.querySelector('#app');
 
-        fetch(`${API_URL}/library/books/?page=0&limit=10`)
+        fetch(`${API_URL}/library/books/?page=0&limit=10`, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json;charset=UTF-8"
+                }
+            })
             .then((response) => response.json())
             .then((users) => {
-             const tpl = users.map((book) =>   `<li>isbn: ${book.isbn}</li> 
-                                                <li>title: ${book.title}</li> 
-                                                <li>estreno: ${(book.publishDate).substr(0,10)}</li>
-                                                <li>category: ${book.category.name}</li>`); 
+             const tpl = users.map((book) => `<li>${book.isbn}</li> <li>${book.title}</li> <li>${book.category.name}</li> <li>${(book.publishDate).substr(0,)}</li>`);
              HTMLResponse.innerHTML = `<ul>${tpl}</ul>`;
             });
     </script>
