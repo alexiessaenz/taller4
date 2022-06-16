@@ -21,7 +21,7 @@
                 const data = JSON.parse(this.response);
                 const HTMLResponse = document.querySelector("#app");
 
-                const tpl = data.map((book) => `<li>${book.isbn}</li> <li>${book.title}</li> <li>${book.category.name}</li>`);
+                const tpl = data.map((book) => `<li>${book.isbn}</li> <li>${book.title}</li>  <li>${book.category.name}</li> <li>${book.publishDate}</li>`);
                 HTMLResponse.innerHTML = `<ul>${tpl}</ul>`;
                 
                 console.log(this.response);
