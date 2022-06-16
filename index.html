@@ -31,12 +31,16 @@
           background: #385B91;
         }
     
-        body,
+        body{
+            background-color: #222c3fdc; /* For browsers that do not support gradients */
+          background-image: linear-gradient(to bottom right, #222c3fdc, purple);
+        }
         input,
         .card,
         .card-body,
         .card-head,
         .border {
+          
           background: #222c3fdc;
           color: white;
         }
