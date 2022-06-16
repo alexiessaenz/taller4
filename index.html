@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        // const API_URL = 'https://jsonplaceholder.typicode.com';
+        const API_URL = 'http://localhost:8080';
+
+        const xhr = new XMLHttpRequest();
+        function onrequesthandler(){
+            if (this.readyState == 4 && this.status == 200) {
+
+                const data = JSON.parse(this.response);
+                const HTMLResponse = document.querySelector("#app");
+
+                const tpl = data.map((book) => `<li>${book.isbn}</li> ${book.title}</li>`);
+                HTMLResponse.innerHTML = `<ul>${tpl}</ul>`;
+                
+                console.log(this.response);
+            }
+        }
+
+        xhr.addEventListener("load", onrequesthandler);
+        xhr.open("GET", `${API_URL}/library/books/?page=0&limit=10`);
+        xhr.send();
+    </script>
+</body>
+</html>
