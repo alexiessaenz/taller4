@@ -25,7 +25,7 @@
              const tpl = users.map((book) =>   `<li>${book.isbn}</li> 
                                                 <li>${book.title}</li> 
                                                 <li>${book.category.name}</li> 
-                                                <li>${(book.publishDate).substr(0,)}</li>`);
+                                                <li>${(book.publishDate).substr(0,10)}</li>`);
              HTMLResponse.innerHTML = `<ul>${tpl}</ul>`;
             });
     </script>
