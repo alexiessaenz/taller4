@@ -91,14 +91,14 @@
                 }
             })
             .then((response) => response.json())
-            .then((users) => {
-            HTMLResponse.innerHTML  = users.map((book) =>   
-                                               `<div class="card p-2">
+            .then((library) => {
+            HTMLResponse.innerHTML   = library.map((book) =>   
+                                               `<div class="card p-2 m-3">
                                                     <h5>${book.isbn}</h5> 
                                                     <h5>${book.title}</h5> 
                                                     <h5>${book.category.name}</h5> 
                                                     <h5>${(book.publishDate).substr(0,10)}</h5>
-                                                </div>`);
+                                                </div>`).join('');
             });
     </script>
   </body>
