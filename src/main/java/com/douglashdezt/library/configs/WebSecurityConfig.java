@@ -58,6 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			//Filtro de rutas
 			.authorizeRequests()
 				.antMatchers("/auth/**").permitAll()
+				.antMatchers("/library/**").permitAll()
+				//.antMatchers("/**").permitAll()
 				.anyRequest().authenticated()
 			.and()
 			//Manejador de errores

@@ -38,7 +38,7 @@ public class LibraryController {
 	@Autowired
 	private BookLoanService bookLoanService;
 	
-	@PostMapping("/books")
+	@GetMapping("/books")
 	public ResponseEntity<List<Book>> findAllBooks(@Valid PageableDTO info, BindingResult result) {	
 	    
 	    if(result.hasErrors()) {
@@ -49,8 +49,8 @@ public class LibraryController {
 	    }
 	    
 	    try {
-	        User userAuth = userService.getUserAuthenticated();
-	        System.out.println(userAuth.getName());
+	        //User userAuth = userService.getUserAuthenticated();
+	        //System.out.println(userAuth.getName());
 	        
 	        List<Book> books = bookService.findAll(info);
 	        
